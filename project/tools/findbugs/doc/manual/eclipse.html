@@ -1,0 +1,27 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;7.&nbsp;Using the FindBugs Eclipse plugin</title><meta name="generator" content="DocBook XSL Stylesheets V1.61.0"><link rel="home" href="index.html" title="Using FindBugs"><link rel="up" href="index.html" title="Using FindBugs"><link rel="previous" href="anttask.html" title="Chapter&nbsp;6.&nbsp;Using the FindBugs Ant task"><link rel="next" href="filter.html" title="Chapter&nbsp;8.&nbsp;Filter Files"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;7.&nbsp;Using the FindBugs Eclipse plugin</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="anttask.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="filter.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="eclipse"></a>Chapter&nbsp;7.&nbsp;Using the <span class="application">FindBugs</span> Eclipse plugin</h2></div></div><div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>1. <a href="eclipse.html#d0e1253">Installation</a></dt><dt>2. <a href="eclipse.html#d0e1286">Using the Plugin</a></dt></dl></div><p>
+The FindBugs Eclipse plugin allows <span class="application">FindBugs</span> to be used within
+the <a href="http://www.eclipse.org/" target="_top">Eclipse</a> IDE.
+The FindBugs Eclipse plugin was generously contributed by Peter Friese,
+and has a <a href="http://www.tobject.de/development/findbugs.html" target="_top">home page</a>.
+</p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1253"></a>1.&nbsp;Installation</h2></div></div><div></div></div><p>
+Two files are required to use the plugin, each of which can be downloaded
+from the <span class="application">FindBugs</span> home page.  The first file is the
+<a href="http://www.cs.umd.edu/~pugh/java/bugs/release/edu.umd.cs.findbugs_0.7.1.zip" target="_top">Core plugin</a>,
+which contains the core <span class="application">FindBugs</span> engine.  The second file is the
+<a href="http://www.cs.umd.edu/~pugh/java/bugs/release/de.tobject.findbugs_0.0.3.zip" target="_top">UI plugin</a>,
+which interfaces <span class="application">FindBugs</span> to the Eclipse workbench.  Each of these files should be extracted
+inside the <tt class="filename">plugins</tt> directory of your Eclipse installation.
+</p><p>
+Once the plugin files are extracted, start Eclipse and choose
+<span class="guimenu">Help</span>-&gt;<span class="guimenuitem">About Eclipse Platform</span>-&gt;<span class="guimenuitem">Plug-in Details</span>.
+You should "FindBugs Plug-in" and "FindBugs Binaries" plugins listed.
+</p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1286"></a>2.&nbsp;Using the Plugin</h2></div></div><div></div></div><p>
+In the properties dialog for a Java project, select "Findbugs".
+Check the box labeled "Enable FindBugs".  Then, in the right
+click menu for the project, select the option labeled
+"Find Bugs".  <span class="application">FindBugs</span> will run, and problem markers will point to
+locations in your code which have been identified as instances
+of bug patterns.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="anttask.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="index.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="filter.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;6.&nbsp;Using the FindBugs Ant task&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;8.&nbsp;Filter Files</td></tr></table></div></body></html>

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc
+END
+Changes.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/Changes.html
+END
+informal.png
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/informal.png
+END
+manual.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/manual.xml
+END
+manual.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/manual.xsl
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/index.html
+END
+AddingDetectors.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/AddingDetectors.txt
+END
+FAQ.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/FAQ.html
+END
+FilterFile.txt
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/FilterFile.txt
+END
+bug-logo.png
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/bug-logo.png
+END
+findbugs-ant.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/doc/findbugs-ant.html
+END

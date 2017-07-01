@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>FindBugs FAQ</title>
+</head>
+
+<body>
+
+<h1>FindBugs FAQ</h1>
+
+<p> This document contains answers to frequently asked questions about
+<a href="index.html">FindBugs</a>, a bug pattern detector for Java.
+
+<h2>Q1: I'm getting java.lang.UnsupportedClassVersionError when I try to run FindBugs</h2>
+
+<p> FindBugs requires JRE 1.4.0 or later to run.&nbsp; If you use an earlier version,
+you will see an exception error message similar to the following:
+<pre>
+Exception in thread "main" java.lang.UnsupportedClassVersionError:
+edu/umd/cs/findbugs/gui/FindBugsFrame (Unsupported major.minor version 48.0)
+</pre>
+The solution is to upgrade to JRE 1.4.0 or later.
+
+<h2>Q2: When I click the "Find Bugs!" button, I get a NoSuchMethodError</h2>
+
+<p> The symptom of this bug is that when you start the FindBugs analysis,
+you see an exception similar to the following:
+<pre>
+java.lang.NoSuchMethodError: org.apache.bcel.Repository.setRepository(Lorg/apache/bcel/util/Repository;)V
+        at edu.umd.cs.findbugs.FindBugs.clearRepository(FindBugs.java:483)
+        ...
+</pre>
+
+<p> The problem here is that the wrong version of the
+<a href="http://jakarta.apache.org/bcel/">Apache BCEL</a>
+library is being found.&nbsp;
+There are (at least) two possible reasons this is happening.
+
+<p> First, if you install the
+<a href="http://java.sun.com/webservices/downloads/webservicespack.html">Java(TM) Web Services Developer Pack 1.2</a>
+in the <code>lib/endorsed</code> directory of your Java Runtime Environment (JRE).&nbsp;
+The file <code>xsltc.jar</code> contains an old version of BCEL that is incompatible with
+FindBugs.&nbsp; Because jar files in the <code>lib/endorsed</code> directory
+take precedence over those in the application, there is no easy way to
+fix the problem except to remove the offending jar file.&nbsp;
+A workaround is to move these Jar files
+into a different directory, and use the <code>java.endorsed.dirs</code> system
+property to specify the new location for programs that require these files.
+
+<p> The other possibility is that you are using the IBM JDK.&nbsp;
+Some versions include a version of BCEL which conflicts with the
+one required by FindBugs.&nbsp; This problem is fixed in version 1.4.1 SP1,
+so upgrading your JDK should allow FindBugs to run correctly.
+
+<p> Many thanks to Peter Meulmeester for identifying the problem
+with the Web Services Developer Pack, and to Michael Levi for reporting
+the problem with the IBM JDK.
+
+<h2>Q3: FindBugs is running out of memory, or is taking a long time to finish</h2>
+
+<p> In general, FindBugs requires lots of memory and a relatively
+fast CPU.  For large applications, 512M or more of heap space may be
+required.  By default, FindBugs allocates 256M of heap space.
+You can increase this using the <code>-maxHeap <i>n</i></code> option,
+where <i>n</i> is the number of megabytes of heap space to allocate.
+
+<p> Version 0.6.9 of FindBugs introduced new types of analysis that
+improve precision, but require more memory and time to perform.
+In version 0.7.0 and later, you can disable these analyses by
+adding the <code>-conserveSpace</code> option to the FindBugs
+command line.  E.g.:
+
+<pre>
+   findbugs -textui -conserveSpace -xml -project myProject.fb -outputFile out.xml
+</pre>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/bin
+END
+findbugs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/bin/findbugs
+END
+findExamples
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/bin/findExamples
+END
+bugHistory
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/bin/bugHistory
+END
+findbugs.bat
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/bin/findbugs.bat
+END
+categorizeBugs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/bin/categorizeBugs
+END
+countBugs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/bin/countBugs
+END
+mergeResults
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/project/!svn/ver/6343/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/tools/findbugs/bin/mergeResults
+END

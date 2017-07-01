@@ -1,0 +1,140 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;3.&nbsp;Building FindBugs from Source</title><meta name="generator" content="DocBook XSL Stylesheets V1.61.0"><link rel="home" href="index.html" title="Using FindBugs"><link rel="up" href="index.html" title="Using FindBugs"><link rel="previous" href="installing.html" title="Chapter&nbsp;2.&nbsp;Installing and Running FindBugs"><link rel="next" href="gui.html" title="Chapter&nbsp;4.&nbsp;Using the Findbugs Graphical User Interface"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;3.&nbsp;Building FindBugs from Source</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="installing.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="gui.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="building"></a>Chapter&nbsp;3.&nbsp;Building <span class="application">FindBugs</span> from Source</h2></div></div><div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt>1. <a href="building.html#d0e421">Prerequisites</a></dt><dt>2. <a href="building.html#d0e516">Extracting the Source Distribution</a></dt><dt>3. <a href="building.html#d0e529">Modifying build.properties</a></dt><dt>4. <a href="building.html#d0e592">Running Ant</a></dt><dt>5. <a href="building.html#d0e683">Running FindBugs</a></dt></dl></div><p>
+This chapter describes how to build <span class="application">FindBugs</span> from source code.  Unless you are
+interesting in modifying <span class="application">FindBugs</span>, you will probably want to skip to the
+<a href="gui.html" title="Chapter&nbsp;4.&nbsp;Using the Findbugs Graphical User Interface">next chapter</a>.
+</p><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e421"></a>1.&nbsp;Prerequisites</h2></div></div><div></div></div><p>
+To compile <span class="application">FindBugs</span> from source, you will need the following:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+      The <a href="http://www.cs.umd.edu/~pugh/java/bugs/release/findbugs-0.7.1-source.tar.gz" target="_top"><span class="application">FindBugs</span> source distribution</a>
+    </p></li><li><p>
+      <a href="http://java.sun.com/j2se/" target="_top">JDK 1.4.0 or later</a>
+    </p></li><li><p>
+      The early-access version of the
+     <a href="http://developer.java.sun.com/developer/earlyAccess/adding_generics/index.html" target="_top">generics-enabled javac
+     </a>
+     </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="note.png"></td><th align="left">Note</th></tr><tr><td colspan="2" align="left" valign="top"><p>If you are using version 2.2 of the generics-enabled javac,
+         you should rename the Jar file <tt class="filename">gcj-rt.jar</tt>
+         to <tt class="filename">javac.jar</tt></p></td></tr></table></div><p>
+    </p></li><li><p>
+      <a href="http://ant.apache.org/" target="_top">Apache <span class="application">Ant</span></a>, version 1.5 or later
+    </p></li><li><p>
+      The <a href="http://www.thecortex.net/clover/generics/jsr14adapter-1.1.jar" target="_top">JSR 14 adapter for <span class="application">Ant</span></a>.  Put the file <tt class="filename">jsr14adapter-1.1.jar</tt> in the
+     <tt class="filename">lib</tt> subdirectory of your <span class="application">Ant</span> installation.
+    </p></li></ul></div><p>
+</p><p>
+If you want to be able to generate formatted versions of the <span class="application">FindBugs</span> documentation,
+you will also need the following software:
+</p><div class="itemizedlist"><ul type="disc"><li><p>
+    The <a href="http://docbook.sourceforge.net/projects/xsl/index.html" target="_top">DocBook XSL Stylesheets</a>.
+    These are required to convert the <span class="application">FindBugs</span> manual into HTML and PDF formats.
+    </p></li><li><p>
+      The <a href="http://saxon.sourceforge.net/" target="_top"><span class="application">Saxon</span> XSLT Processor</a>.
+      The file <tt class="filename">saxon.jar</tt> should be in your <tt class="envar">CLASSPATH</tt>.
+    </p></li></ul></div><p>
+</p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e516"></a>2.&nbsp;Extracting the Source Distribution</h2></div></div><div></div></div><p>
+After you download the source distribution, you'll need to extract it into
+a working directory.  A typical command to do this is:
+
+</p><pre class="screen">
+<tt class="prompt">$ </tt><b class="command">gunzip -c findbugs-0.7.1-source.tar.gz | tar xvf -</b>
+</pre><p>
+
+</p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e529"></a>3.&nbsp;Modifying <tt class="filename">build.properties</tt></h2></div></div><div></div></div><p>
+You will need to modify the <tt class="filename">build.properties</tt> file
+used by the <a href="http://ant.apache.org/" target="_top"><span class="application">Ant</span></a>
+<tt class="filename">build.xml</tt> file to build <span class="application">FindBugs</span>.
+The <tt class="filename">build.properties</tt> looks like this:
+</p><pre class="programlisting">
+
+# User Configuration:
+# This section must be modified to reflect your system.
+
+local.software.home     =/export/home/daveho/linux
+
+# Set this to the location where you installed the generics-enabled
+# version of javac.  Note: you need to install the JSR-14 Compiler Adapter,
+# http://www.thecortex.net/clover/generics/jsr14adapter-1.1.jar,
+# in the lib subdirectory of your Ant installation.
+# If you are using version 2.2 of the generics-enabled javac,
+#  then you will need to rename "gjc-rt.jar" to "javac.jar".
+
+jsr14.home              =${local.software.home}/java/adding_generics-2_2-ea
+
+# Set this to the directory containing the DocBook Modular XSL Stylesheets
+#  from http://docbook.sourceforge.net/projects/xsl/
+
+xsl.stylesheet.home     =${local.software.home}/docbook/docbook-xsl-1.61.0
+
+# Set this to the directory where Saxon (http://saxon.sourceforge.net/)
+# is installed. 
+
+saxon.home              =${local.software.home}/java/saxon-6.5.2
+
+# Set this to the directory where Eclipse (http://www.eclipse.org/)
+# is installed.  This only required if you want to build the FindBugs
+# Eclipse plugin.
+
+eclipse.home		=${local.software.home}/java/eclipse-2.1.2
+
+</pre><p>
+</p><p>
+The first property, <tt class="varname">jsr14.home</tt> specifies the directory containing your installation
+of the generics-enabled version of javac.  You must update the value
+of this property to match your system.
+</p><p>
+The second property, <tt class="varname">xsl.stylesheet.home</tt> specifies the full
+path to the directory where you have installed the
+<a href="http://docbook.sourceforge.net/projects/xsl/" target="_top">DocBook Modular XSL
+Stylesheets</a>.  You only need to specify this property if you will be
+generating the <span class="application">FindBugs</span> documentation.
+</p><p>
+The third property, <tt class="varname">saxon.home</tt>, is the full path to the
+directory where you installed the <a href="http://saxon.sourceforge.net/" target="_top"><span class="application">Saxon</span> XSLT Processor</a>.
+You only need to specify this property if you will be
+generating the <span class="application">FindBugs</span> documentation.
+</p><p>
+The fourth property, <tt class="varname">eclipse.home</tt>, is the full path
+to an installation of <a href="http://www.eclipse.org/" target="_top">Eclipse</a>.
+You only need to specify this property if you want to rebuild the
+FindBugs Eclipse plugin.
+</p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e592"></a>4.&nbsp;Running <span class="application">Ant</span></h2></div></div><div></div></div><p>
+Once you have extracted the source distribution, modified <tt class="filename">build.xml</tt>
+to reflect your system, and configured the tools (such as <span class="application">Saxon</span> and the the JSR-14 adapter
+for <span class="application">Ant</span>), you are ready to build <span class="application">FindBugs</span>.  Invoking <span class="application">Ant</span> is a simple matter
+of running the command
+</p><pre class="screen">
+<tt class="prompt">$ </tt><b class="command">ant <i class="replaceable"><tt>target</tt></i></b>
+</pre><p>
+where <i class="replaceable"><tt>target</tt></i> is one of the following:
+</p><div class="variablelist"><dl><dt><span class="term"><b class="command">build</b></span></dt><dd><p>
+         This target compiles the code for <span class="application">FindBugs</span>.
+       </p></dd><dt><span class="term"><b class="command">buildAll</b></span></dt><dd><p>
+       This target compiles the code and formats the documentation.
+       </p></dd><dt><span class="term"><b class="command">release</b></span></dt><dd><p>
+       This target generates a complete binary release of <span class="application">FindBugs</span> into the
+       <tt class="filename">build/release</tt> subdirectory.
+       You will probably not need to use this target unless you want to
+       distribute your own modified version of <span class="application">FindBugs</span>.
+       </p></dd><dt><span class="term"><b class="command">docs</b></span></dt><dd><p>
+       This target just formats the documentation.  (It also compiles some of
+       the source code as a side-effect.)
+       </p></dd></dl></div><p>
+</p><p>
+After running an <span class="application">Ant</span> command, you should see output similar to
+the following (after some other messages regarding the tasks that
+<span class="application">Ant</span> is running):
+</p><pre class="screen">
+<tt class="computeroutput">
+BUILD SUCCESSFUL
+Total time: 17 seconds
+</tt>
+</pre><p>
+</p></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e683"></a>5.&nbsp;Running <span class="application">FindBugs</span></h2></div></div><div></div></div><p>
+The <span class="application">Ant</span> build script for <span class="application">FindBugs</span> is set up such that after 
+building the <b class="command">build</b> target, the working directory
+is set up just like a binary distribution.  So, the information about
+installing a binary distribution of <span class="application">FindBugs</span> in <a href="installing.html" title="Chapter&nbsp;2.&nbsp;Installing and Running FindBugs">Chapter&nbsp;2, <i>Installing and Running FindBugs</i></a>
+apply to source distributions, too.
+</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="installing.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="index.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="gui.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;Installing and Running FindBugs&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;Using the Findbugs Graphical User Interface</td></tr></table></div></body></html>

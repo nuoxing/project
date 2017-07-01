@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd   
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/data/mongo     
+        http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd"> 
+	
+
+   <!-- 金信执法数据源 -->
+	<bean id="jinXinZfdataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jinxinzf.connection.driver_class}" />
+		<property name="jdbcUrl" value="${jinxinzf.connection.url}" />
+		<property name="user" value="${jinxinzf.connection.username}" />
+		<property name="password" value="${jinxinzf.connection.password}" />
+		<property name="minPoolSize" value="${jinxinzf.c3p0.min_size}" />
+		<property name="maxPoolSize" value="${jinxinzf.c3p0.max_size}" />
+		<property name="maxStatements" value="${jinxinzf.c3p0.max_statements}" />
+		<property name="maxIdleTime" value="${jinxinzf.c3p0.max_idle_time}" />
+		<property name="acquireIncrement" value="${jinxinzf.c3p0.acquire_increment}" />
+		<property name="idleConnectionTestPeriod" value="${jinxinzf.c3p0.idle_connection_test_period}" />
+	</bean>
+	
+	
+	<bean id="jinXinZfDbDao" class="com.jyzx.otherDBSource.JinXinZfDbDao">
+		<property name="dataSource" ref="jinXinZfdataSource" />
+	</bean>
+
+	
+</beans>

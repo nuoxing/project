@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/project/!svn/ver/4883/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service
+END
+FourCheckService.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/project/!svn/ver/4818/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/FourCheckService.java
+END
+StopCancelService.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/project/!svn/ver/6152/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/StopCancelService.java
+END
+EnrolService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/project/!svn/ver/6152/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/EnrolService.java
+END
+FreezeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/project/!svn/ver/4818/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/FreezeService.java
+END
+SynInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/project/!svn/ver/4883/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/SynInfoService.java
+END
+SecrecyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/project/!svn/ver/4818/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/SecrecyService.java
+END
+NeedApproService.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/project/!svn/ver/4818/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/NeedApproService.java
+END
+RecordService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/project/!svn/ver/6363/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/RecordService.java
+END
+TotalService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/project/!svn/ver/6356/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX/src/com/jyzx/service/TotalService.java
+END

@@ -1,0 +1,90 @@
+
+<project name="AntDemo" default="junit" basedir=".">
+
+    <property name="src.path" value="src"/>
+    <property name="test.path" value="src/test"/>
+    <property name="build.path" value="WebContent/WEB-INF/classes"/>
+    <property name="dist.path" value="WebContent/WEB-INF/lib"/>
+    <property name="lib.path" value="WebContent/WEB-INF/lib"/>
+    <property name="report.path" value="report"/>
+
+    <path id="compile.path">        
+        <fileset dir="${lib.path}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement path="${build.path}"/>
+    </path> 
+    <target name="init">        
+        <mkdir dir="${build.path}"/>
+        <mkdir dir="${report.path}"/>
+        <mkdir dir="${dist.path}"/>
+    </target>
+
+    <target name="clean" description="clean">        
+        <delete dir="${build.path}"/>
+        <delete dir="${report.path}"/>
+        <delete dir="${dist.path}"/>
+    </target>
+	
+    <target name="compile" depends="init">
+        <javac encoding="UTF-8" srcdir="${src.path}" destdir="${build.path}"   classpathref="compile.path" includeantruntime="true" />
+        <javac encoding="UTF-8" srcdir="${test.path}" destdir="${build.path}"  classpathref="compile.path" includeantruntime="true" />
+    </target>
+     
+    <target name="junit" depends="compile">                
+        <junit printsummary="true" fork="true">        
+             <formatter type="xml" usefile="true"/>        
+            
+             <classpath refid="compile.path"/>        
+            
+            <batchtest fork="on" todir="${report.path}" haltonfailure="no">
+                <fileset dir="${build.path}">
+                    <include name="test/**/Test*.class"/>
+                </fileset>
+            </batchtest>                 
+         </junit>        
+     </target>
+    
+    <target name="junit-report" depends="junit">        
+        <junitreport todir="${report.path}">
+            <fileset dir="${report.path}">
+                <include name="TEST-*.xml" />
+            </fileset>
+            
+            <report format="frames" todir="${report.path}" />
+        </junitreport>
+    </target>
+
+
+	
+	<property  name="findbugs.home" value="tools\findbugs"/>
+    <path id="findbugs.path">
+       <fileset dir="tools\findbugs">
+           <include  name="**/*.jar"/>
+       </fileset>
+    </path>
+	 
+	<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="findbugs.path"/>
+		 
+	<target name="findbugs">
+		 <findbugs home="${findbugs.home}"  output="xml" outputFile="findbugs.xml">
+	         <auxClasspath path="${findbugs.home}/lib/findbugs-ant.jar"/>
+	         <sourcePath path="src"/>
+	         <class location="build"/>
+	    </findbugs>
+	</target>
+
+    <target name="make-jar" depends="compile" description="make jar file">
+          <jar jarfile="${dist.path}/AntDemo.jar">
+               <fileset dir="${build.path}">
+
+                <exclude name="**/*Test.class"/>
+               </fileset>
+          </jar>
+     </target>    
+	
+	
+		 
+	
+    
+</project>

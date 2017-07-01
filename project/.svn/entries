@@ -1,0 +1,82 @@
+8
+
+dir
+4896
+https://win-7s2a3b30j7o:8443/svn/project/%E7%AE%80%E6%98%93%E6%B3%A8%E9%94%80/jyzx/JYZX
+https://win-7s2a3b30j7o:8443/svn/project
+
+
+
+2017-03-07T03:57:49.438219Z
+4883
+lingjj
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2ebf1eac-e7a0-b448-95a2-c185d5cbd67d
+
+.classpath
+file
+6340
+
+
+
+2017-06-02T01:51:44.546000Z
+f3570ebcbeb50dd8d24ca61e0eb5377d
+2017-06-02T06:55:06.256739Z
+6340
+suwy
+
+.project
+file
+
+
+
+
+2017-02-22T08:32:56.349000Z
+eac778199ac4638a2b2e5fc1961430fe
+2017-03-03T01:02:01.780925Z
+4818
+suwy
+
+.settings
+dir
+
+WebContent
+dir
+
+build
+dir
+
+build.xml
+file
+6361
+
+
+
+2017-06-02T09:46:48.639000Z
+2096db7dfcff14621cd63c858601b183
+2017-06-02T09:47:43.340421Z
+6361
+suwy
+
+report
+dir
+
+src
+dir
+
+tools
+dir
+
